@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Operation Marching Orders Platform</title> 
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="Description" content="Operation Marching Orders data visualization" />
+        <meta http-equiv="Window-target" content="_top" />
+        <meta name="Keywords" content="Operation Marching Orders March On" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta name="Language" content="en-us" />
+        <meta name="Author" content="Ragtag" />
+        <meta name="Copyright" content="Copyright 2018 - March On" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    </head>
+    <body> 
+Operation Marching Orders
+<button onclick="getComments()">Click me</button>
+    <script>
+        function getComments() {
+            $.getJSON('static/comments.json', function (json) {
+                var commentArray = json.comments;
+                for (var i in commentArray) {
+                    console.log(commentArray[i]["text"]);
+                }
+            });
+        }
+    </script>
+  </body>
+</html>
