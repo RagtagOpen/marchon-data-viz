@@ -1,3 +1,133 @@
+@import 'base/normalize';
+@import 'base/utilities';
+@import 'base/variables';
+
+// Scaffolding
 body{
-    background-color: blue;
+    font-family: $font-family;
+    font-size: 16px;
+}
+
+p{
+    line-height: 1.5;
+}
+
+
+// Header
+.page-header{
+    background-color: $brand-red;
+    padding: 60px 20px 70px;
+}
+
+h2.page-header__title{
+    font-size: 60px;
+    margin: 0px 0px 20px;
+}
+
+p.page-header__copy{
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+
+// Body
+.page-body{
+    background-color: $brand-blue;
+    padding: 40px 20px 60px;
+}
+
+// Bubbles{
+
+.bubble-list{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.bubble-wrapper{
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+}
+
+.bubble-wrapper:nth-child(2n+1) {
+    animation: scaleInFromLeft .75s ease-in-out;
+    .bubble-body:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-top-color: #ffffff;
+        border-bottom: 0;
+        border-left: 0;
+        margin-left: -10px;
+        margin-bottom: -20px;
+    }
+    .bubble-footer{
+        text-align:right;
+    }
+}
+
+.bubble-wrapper:nth-child(2n) {
+    flex-direction: row-reverse;
+    animation: scaleInFromRight .75s ease-in-out;
+    .bubble-body:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 80%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-top-color: #ffffff;
+        border-bottom: 0;
+        border-right: 0;
+        margin-left: -10px;
+        margin-bottom: -20px;
+    }
+}
+
+.bubble-body{
+    background-color: #ffffff;
+    padding: 30px;
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+}
+
+@keyframes scaleInFromLeft {
+    from {
+        opacity: 0;
+        left: -40px;
+        bottom: -20px;
+        //transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        left: 0px;
+        bottom: 0px;
+        //transform: scale(1);
+    }
+}
+
+@keyframes scaleInFromRight {
+    from {
+        opacity: 0;
+        right: -40px;
+        bottom: -20px;
+        //transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        right: 0px;
+        bottom: 0px;
+        //transform: scale(1);
+    }
+}
+
+.bubble-footer{
+    font-size: 12px;
+    margin: 5px 5px 0px;
 }
