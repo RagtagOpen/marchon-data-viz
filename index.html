@@ -18,7 +18,6 @@
       </p>
     </header>
     <main class="page-body">
-      <input type="button" id="driver" value="Load Data" />
       <br>
       <select id="mySelect" onchange="myFunction()">
         <option value="topic">Category</option>
@@ -33,7 +32,6 @@
 
     <script type="text/javascript" language="javascript">
       $(document).ready(function() {
-        $("#driver").click(function(event){
           $.getJSON('comments_all.json', function(jd) {
             topic_list=[];
             for (i = 1; i < Object.keys(jd).length+1; i++) {
@@ -54,7 +52,6 @@
             }
             myList.innerHTML = listContent;
           });
-        });
         function onlyUnique(value, index, self) {
             return self.indexOf(value) == index;
         }
@@ -62,6 +59,8 @@
 
       function listMajors(x) {
         //document.getElementById('content').innerHTML = '<strong>Category</strong> =  '+ x + '\n';
+        var pre = document.getElementById('content');
+        pre.innerHTML= '';
         $.getJSON('comments_all.json', function(jd) {
           for (i = 1; i < Object.keys(jd).length+1; i++) {
 
@@ -69,7 +68,6 @@
             // if (jd[i].Category==x) {
               // alert(x);
             if (myArray.indexOf(x) != -1) {
-              var pre = document.getElementById('content');
               var textBubble = '<div class="bubble-wrapper"><div><div class="bubble-body">' + jd[i]["comment-body"] + '</div><div class="bubble-footer u-text-white">' + jd[i]["Category"] + ":  " + jd[i]["agrees"] + " Likes   " + '</div></div></div>';
               pre.innerHTML += textBubble;
             }
