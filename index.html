@@ -62,14 +62,17 @@
         var pre = document.getElementById('content');
         pre.innerHTML= '';
         $.getJSON('comments_all.json', function(jd) {
+          var animationKey = 0;
           for (i = 1; i < Object.keys(jd).length+1; i++) {
 
             var myArray = jd[i].Category.toLowerCase().trim().match(/[^,\s][^\,]*[^,\s]*/g);
             // if (jd[i].Category==x) {
               // alert(x);
             if (myArray.indexOf(x) != -1) {
-              var textBubble = '<div class="bubble-wrapper"><div><div class="bubble-body">' + jd[i]["comment-body"] + '</div><div class="bubble-footer u-text-white">' + jd[i]["Category"] + ":  " + jd[i]["agrees"] + " Likes   " + '</div></div></div>';
+              var pre = document.getElementById('content');
+              var textBubble = '<div class="bubble-wrapper" style="animation-delay:' + [animationKey] + 's"><div><div class="bubble-body">' + jd[i]["comment-body"] + '</div><div class="bubble-footer u-text-white">' + jd[i]["Category"] + ":  " + jd[i]["agrees"] + " Likes   " + '</div></div></div>';
               pre.innerHTML += textBubble;
+              animationKey++;
             }
           }
         });
