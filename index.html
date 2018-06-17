@@ -19,9 +19,13 @@
     </header>
     <main class="page-body">
       <br>
-      <select id="mySelect" onchange="myFunction()">
-        <option value="topic">Category</option>
-      </select>
+      <div class="select-slider">
+        <div class="triangleleft" onclick="switchCategoryLeft()"></div>
+        <select id="mySelect" onchange="myFunction()">
+          <option value="topic">Category</option>
+        </select>
+        <div class="triangleright" onclick="switchCategoryRight()"></div>
+      </div>
       <br>
       <p id="demo"></p>
       <div id="content" class="bubble-list"></div>
@@ -45,12 +49,15 @@
             var uniqueList = topic_list.filter( onlyUnique );
             uniqueList.sort();
             // alert(uniqueList);
+            //Store select unique list to local storage to be used by arrows when selecting
+            localStorage.setItem('select-list', JSON.stringify(uniqueList));            
             var myList = document.getElementById('mySelect');
             var listContent = '';
             for (i = 0; i < uniqueList.length; i++) {
               listContent = listContent + '<option value="' + uniqueList[i] + '">' + uniqueList[i] + '</option>';
             }
             myList.innerHTML = listContent;
+            listMajors('ageism');
           });
         function onlyUnique(value, index, self) {
             return self.indexOf(value) == index;
@@ -83,6 +90,31 @@
         //document.getElementById("demo").innerHTML = 'You selected: ' + x ;
         // alert('myFunction ' + x);
         listMajors(x);
+      }
+
+      function switchCategoryLeft() {
+        var x = document.getElementById("mySelect").value;
+        var selectList = JSON.parse(localStorage.getItem('select-list'));
+        for (i = 0; i < selectList.length; i++) {
+          console.log(selectList[i]);
+          if (selectList[i] == x) {
+            listMajors(i == 0 ? selectList[0] : selectList[i-1]);
+            $("#mySelect").val(i == 0 ? selectList[0] : selectList[i-1]);
+            return;
+          }
+        }
+      }
+      function switchCategoryRight() {
+        var x = document.getElementById("mySelect").value;
+        var selectList = JSON.parse(localStorage.getItem('select-list'));
+        for (i = 0; i < selectList.length; i++) {
+          console.log(selectList[i]);
+          if (selectList[i] == x) {
+            listMajors(i == selectList.length-1 ? selectList[selectList.length-1] : selectList[i+1]);
+            $("#mySelect").val(i == selectList.length-1 ? selectList[selectList.length-1] : selectList[i+1]);
+            return;
+          }
+        }
       }
     </script>
   </body>
