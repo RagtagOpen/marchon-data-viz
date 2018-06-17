@@ -143,3 +143,28 @@ p.page-header__copy{
     font-size: 12px;
     margin: 5px 5px 0px;
 }
+
+.select-slider {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.triangleleft, .triangleright {
+    border-right: 3px solid; 
+    border-bottom: 3px solid;
+    height: 40px;
+    width: 40px;
+    color: #fff;
+    margin-left: 50%;
+    display:table-cell;
+    cursor:pointer;
+}
+
+.triangleright {
+    transform: rotate(-45deg);
+}
+
+.triangleleft {
+    transform: rotate(135deg);
+}
