@@ -472,8 +472,8 @@ p.page-header__copy {
 .triangleleft, .triangleright {
   border-right: 3px solid;
   border-bottom: 3px solid;
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   color: #fff;
   margin-left: 50%;
   display: table-cell;
@@ -486,6 +486,20 @@ p.page-header__copy {
 
 .triangleleft {
   transform: rotate(135deg);
+}
+
+#category, #count-responses {
+  text-align: center;
+  position: relative;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: capitalize;
+  min-width: 360px;
+}
+
+#count-responses {
+  font-size: 1rem;
+  margin-top: 5px;
 }
 
 /*# sourceMappingURL=style.min.css.map */
