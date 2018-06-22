@@ -85,7 +85,7 @@
 	{
 		"item":10,
 		"name":"Education",
-		"categories": ["children","education"],
+		"categories": ["children","education"], 
 		"description": ["Our government is responsible for investing in an educated workforce and should be expanding the quality of public education, rather than outsourcing to charter schools. ",
 						"Universal Pre-K education and access to child care is necessary for the development of young minds, the health of our workforce, and closing the income gap.",
 						"Teachers should be paid more for the hard work of educating our children.",
