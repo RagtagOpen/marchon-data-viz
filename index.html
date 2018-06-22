@@ -26,6 +26,8 @@
         <div class="triangleright" onclick="switchCategoryRight()"></div>
       </div>
       <br>
+      <div id="category-description"></div>
+      <br>
       <p id="demo"></p>
       <div id="content" class="bubble-list"></div>
     </main>
@@ -35,6 +37,11 @@
 
     <script type="text/javascript" language="javascript">
       $(document).ready(function() {
+          //Save category descriptions to local storage to be accessed later
+          $.getJSON('category_descriptions.json', function(cd) {
+            localStorage.setItem('category-descriptions', JSON.stringify(cd));
+          });
+
           $.getJSON('comments_all.json', function(jd) {
             topic_list=[];
             for (i = 1; i < Object.keys(jd).length+1; i++) {
@@ -62,10 +69,12 @@
             let category = 'ageism';
             listMajors(category);
             $("#mySelect").val(category);
+            setDescription(category);
             $("#category").text(category.replace("-"," "));
             $("#count-responses").text(count[category] + " Responses");
             $(".triangleleft").css({"color":"#4f9dba","cursor":"auto"});
           });
+
         function onlyUnique(value, index, self) {
             return self.indexOf(value) == index;
         }
@@ -101,6 +110,7 @@
 
       function switchCategory(category,direction) {
         listMajors(category);
+        setDescription(category);
         var count = JSON.parse(localStorage.getItem('count-list'));
         $("#mySelect").val(category);
         $("#count-responses").text(count[category] + " Responses");
@@ -147,6 +157,21 @@
             return;
           }
         }
+      }
+
+      function setDescription(category) {
+        var categoryDescriptions = JSON.parse(localStorage.getItem('category-descriptions'));
+        $("#category-description").text('');
+        for (var i = 0; i < categoryDescriptions.length; i++ ) {
+          if (categoryDescriptions[i].categories.includes(category)) {
+            for (var y = 0; y < categoryDescriptions[i].description.length; y++ ) {
+              $("#category-description").append("<p>" + categoryDescriptions[i].description[y] + "</p>");
+            }
+            $("#category-description").fadeIn(1000);
+            return;
+          }          
+        }
+        $("#category-description").hide();         
       }
     </script>
   </body>

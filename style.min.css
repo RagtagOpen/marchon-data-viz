@@ -502,4 +502,13 @@ p.page-header__copy {
   margin-top: 5px;
 }
 
+#category-description {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /*# sourceMappingURL=style.min.css.map */

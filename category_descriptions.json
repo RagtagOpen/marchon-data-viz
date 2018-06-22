@@ -1,0 +1,96 @@
+[
+	{
+		"item":1,
+		"name":"Political Reform",
+		"categories": ["citizens-united","collusion","compromise","corruption","election-reform","gerrymandering","government-transparency","voting"],
+		"description": ["We hold these truths to be self-evident, that ratification of the equal rights amendment is imperative to strengthen our democracy. ",
+						"That comprehensive election reform that takes on gerrymandering, removing corporate money from politics, and dismantling voter disenfranchisement is necessary for the health and progress of our country. ",
+						"Only by becoming fully independent of corporate money in politics will people take precedence over corporations.",
+						"We believe that civility and compromise are necessary for the functioning of our government and our society.",
+						"That legislative decisions should be made from a foundation of fact and that our constitution gives us freedom of religion, which is also freedom from religion - from its dictates in our daily lives and its influence on public policy. " ]
+	},
+	{
+		"item":2,
+		"name":"Intersectionality",
+		"categories": ["ageism","disability","equality","human-rights","intersectionality","lbgtq","lgbtq","native-americans","race-equality","womens-rights"],
+		"description": ["We believe that devaluation and dehumanization of people based on their race, religion, sexuality, gender identity, and age is a pervasive issue -- and it is the responsibility of all people to combat this injustice, in private life and through civic engagement. ",
+						"We believe that white people are responsible for making themselves aware of the issues facing minority communities. ",
+						"That lifting up and amplifying the voices of minority communities is necessary for a stronger, more just union. ",
+						"That reparations for centuries of state-sponsored harm done to African American and Native American peoples are necessary for equality to be achieved. ",
+						"And that gender expression and sexuality are not the purview of the federal or state governments beyond ensuring that all people are protected from discrimination so that they can access the same life, liberty, and pursuit of happiness as everyone else." ]
+	},
+	{
+		"item":3,
+		"name":"Reproductive Freedom",
+		"categories": ["choice"],
+		"description": ["We know that without access and the right to abortion and a full range of reproductive health care services, women and transgender people will never have the same freedom and autonomy as men. ",
+						"We will not stop fighting until every woman and transgender person in this country has access to full reproductive services. ",
+						"We will only support pro-choice candidates.",
+						"That those among us who personally might not choose to have an abortion or might  call ourselves pro-life -- - we believe that Roe v Wade is the law of the land and should remain as such. We will never hinder abortion access or reproductive health care access for others and will not support a government that does. "]
+	},
+	{
+		"item":4,
+		"name":"Justice System",
+		"categories": ["death-penalty","police-reform","prison-reform"],
+		"description": ["We believe that making money off the incarceration of American citizens is a disturbing and immoral trend, and that the U.S. should close private prisons and reduce the prison population significantly through changes in sentencing for nonviolent and first-time offenses. ",
+						"We agree that our bail system is corrupt and criminalizes poverty.  ",
+						"That there must be accountability for the killing of black men, women, and children. Now. ",
+						"That sexual assault should be handled like any other crime, giving priority to due process and the support of victims. Colleges are not equipped to handle sexual assault and rape allegations. These allegations must be handled only by the criminal justice system.  ",
+						"And we must abolish the death penalty." ]
+	},
+	{
+		"item":5,
+		"name":"Capitalism and the Economy",
+		"categories": ["capitalism","cfpb","economic-justice","growth","inequality","labor","poverty","taxes"],
+		"description": ["We believe that capitalism is not part of the Constitution, and that rights of people hold precedence. ",
+						"That our government is responsible for ensuring there is a social safety net to protect its people in an evolving and often tumultuous economy -- so that no child will grow up in poverty in these United States. ",
+						"[The estate tax should not have been cut. The very wealthy should pay much more in taxes.]",
+						"We believe that a livable, $15 wage for a full day’s work should be mandatory across all industries. ",
+						"We believe that the fight for equal pay for women should be a thing of the past. Women should be paid equally, provided with parental leave and childcare benefits, and engaged in the workforce as they age -- for the good of individuals and the nation.",
+						"The right of workers to organize is crucial to the healthy functioning of our democracy. " ]
+	},
+	{
+		"item":6,
+		"name":"Immigration",
+		"categories": ["daca","immigration","refugees","the-wall"],
+		"description": ["We are now, and have always been, a nation of immigrants.  ",
+						"We support the sanctuary movement until it is no longer needed. ",
+						"Our immigration policy should be one of welcome, for immigrants, guest workers, and refugees. ",
+						"We know that walls are an archaic and impotent approach to borders." ]
+	},
+	{
+		"item":7,
+		"name":"Guns",
+		"categories": ["gun-control"],
+		"description": ["We believe that our modern interpretation of the 2nd Amendment has become destructive and that is the right of the people to alter it.  ",
+						"We will only vote for candidates who support and will fight for sensible gun laws.",
+						"It is time for semi-automatic, automatic, and military-grade weapons to be illegal for private citizens to own or carry." ]
+	},
+	{
+		"item":8,
+		"name":"Environment",
+		"categories": ["environment"],
+		"description": ["We believe that the protection of our environment through combating climate change takes priority over propping up obsolete industries -- and that retraining for and incentivizing jobs in alternative sectors is good for the economy and the environment. ",
+						"Oil and fossil fuel companies must be held accountable, financially and legally, for the damages their practices have knowingly caused. ",
+						"Protecting our environment and natural heritage through environmental protection laws and the protection of national parks, wilderness areas, and public lands is a safe investment for our future.  ",
+						"Fossil fuel extraction should not be allowed off our coasts or on federally protected lands. " ]
+	},
+	{
+		"item":9,
+		"name":"Healthcare",
+		"categories": ["healthcare"],
+		"description": ["No one in the United States should fear being unable to afford a doctor.",
+						"Access to affordable and high quality physical, mental, and addiction-related health care is necessary now. " ]
+	},
+	{
+		"item":10,
+		"name":"Education",
+		"categories": ["children","education"],
+		"description": ["Our government is responsible for investing in an educated workforce and should be expanding the quality of public education, rather than outsourcing to charter schools. ",
+						"Universal Pre-K education and access to child care is necessary for the development of young minds, the health of our workforce, and closing the income gap.",
+						"Teachers should be paid more for the hard work of educating our children.",
+						"Children with disabilities should not be marginalized, but should received the same education as their peers. ",
+						"State colleges and universities are public institutions and an education at a public institution should be accessible to the public -- through free or limited tuition." ]
+	}
+]
+
