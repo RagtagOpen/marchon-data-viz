@@ -387,7 +387,7 @@ p.page-header__copy {
 }
 
 .bubble-wrapper:nth-child(2n+1) {
-  animation: scaleInFromLeft 0.75s ease-in-out forwards;
+  animation: scaleInFromLeft 0.25s ease-in-out forwards;
 }
 .bubble-wrapper:nth-child(2n+1) .bubble-body:after {
   content: "";
@@ -409,7 +409,7 @@ p.page-header__copy {
 
 .bubble-wrapper:nth-child(2n) {
   flex-direction: row-reverse;
-  animation: scaleInFromRight 0.75s ease-in-out forwards;
+  animation: scaleInFromRight 0.25s ease-in-out forwards;
 }
 .bubble-wrapper:nth-child(2n) .bubble-body:after {
   content: "";
@@ -493,7 +493,6 @@ p.page-header__copy {
   position: relative;
   font-size: 2rem;
   color: #fff;
-  text-transform: capitalize;
   min-width: 360px;
 }
 
