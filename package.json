@@ -1,0 +1,36 @@
+{
+  "name": "marchon-data-viz",
+  "version": "1.0.0",
+  "description": "Visualization of March On's Operation Marching Orders data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RagtagOpen/marchon-data-viz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RagtagOpen/marchon-data-viz/issues"
+  },
+  "homepage": "https://github.com/RagtagOpen/marchon-data-viz#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "cssnano": "^3.10.0",
+    "grunt": "^1.0.3",
+    "grunt-browserify": "^5.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-postcss": "^0.9.0",
+    "pixrem": "^4.0.1"
+  }
+}
