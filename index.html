@@ -15,7 +15,6 @@
       <div class="select-slider">
         <div class="triangleleft" onclick="switchCategoryLeft()"></div>
         <div id="category"></div>
-        <div id="count-responses"></div>
 <!--         <select id="mySelect" style="display:none;" onchange="myFunction()">
           <option value="topic">Category</option>
         </select> -->
@@ -100,7 +99,6 @@
         for (var i=0; i < macroCategory.categories.length ; i++) {
           countResponses += listMajors(macroCategory.categories[i]);
         }
-        $("#count-responses").text(countResponses + " Responses");
       }
 
       function listMajors(x) {
@@ -110,7 +108,7 @@
         for (i = 1; i < Object.keys(content).length+1; i++) {
 
           if (content[i].Category == x) {
-            var textBubble = '<div class="bubble-wrapper" style="animation-delay:' + [animationKey] + 's"><div><div class="bubble-body">' + content[i]["comment-body"] + '</div><div class="bubble-footer u-text-white">' + content[i]["Category"] + ":  " + content[i]["agrees"] + " Likes   " + '</div></div></div>';
+            var textBubble = '<div class="bubble-wrapper" style="animation-delay:' + [animationKey] + 's"><div><div class="bubble-body">' + content[i]["comment-body"] + '</div></div></div>';
             // pre.innerHTML += textBubble;
             $('#content').append(textBubble);
             animationKey++;
@@ -125,13 +123,9 @@
         if (direction=="left") {
           $("#category").css({"opacity": 0, "left":"-=100"});
           $("#category").animate({left:0, opacity:1},1000);
-          $("#count-responses").css({"opacity": 0, "left":"-=100"});
-          $("#count-responses").animate({left:0, opacity:1},1000);
         } else if (direction=="right") {
           $("#category").css({"opacity": 0, "left":"+=100"});
           $("#category").animate({left:0, opacity:1},1000);
-          $("#count-responses").css({"opacity": 0, "left":"+=100"});
-          $("#count-responses").animate({left:0, opacity:1},1000);
         } else {
           return;
         }
