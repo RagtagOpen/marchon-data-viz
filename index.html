@@ -11,7 +11,9 @@
   <body>
 
     <main class="page-body">
-      <br>
+      <div id="outer-div">
+      <div id="content" class="bubble-list"></div>
+<div id="declaration">
       <div class="select-slider">
         <div class="triangleleft" onclick="switchCategoryLeft()"></div>
         <div id="category"></div>
@@ -25,7 +27,8 @@
       <div id="category-description"></div>
       <br>
       <p id="demo"></p>
-      <div id="content" class="bubble-list"></div>
+</div>
+      </div>
     </main>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
@@ -68,6 +71,14 @@
     // $("#category").text(category.replace("-"," "));
     // $("#count-responses").text(count[category] + " Responses");
     $('.triangleleft').css({ color: '#4f9dba', cursor: 'auto' });
+    var pos = 0;
+    var id = setInterval(animate_bubbles, 10);
+    function animate_bubbles() {
+        top_pos = parseInt($('.bubble-list').css('top'), 10);
+        top_pos--; 
+        pos_string = top_pos + 'px';
+        $('.bubble-list').css({top: pos_string});
+    }
   });
 
   function onlyUnique(value, index, self) {
@@ -78,7 +89,6 @@
 function listMacroCategories(index, direction) {
   localStorage.setItem('current-macro-category', index);
   var macroCategories = JSON.parse(localStorage.getItem('macro-categories'));
-  // var content = JSON.parse(localStorage.getItem('topic_list'));
   var macroCategory = macroCategories[index];
 
   //Populate category title
@@ -94,22 +104,21 @@ function listMacroCategories(index, direction) {
 
   //Populate bubbles
   $('#content').text('');
-  // var pre = document.getElementById('content');
-  // pre.innerHTML= '';
   var countResponses = 0;
   for (var i = 0; i < macroCategory.categories.length; i++) {
-    countResponses += listMajors(macroCategory.categories[i]);
+      countResponses += listMajors(macroCategory.categories[i], countResponses);
   }
-  $('#count-responses').text(countResponses + ' Responses');
+  $('.bubble-list').css({top: '0px'});
+
 }
 
-function listMajors(x) {
+function listMajors(x, prev_num_responses) {
   var content = JSON.parse(localStorage.getItem('comments_all'));
-  var animationKey = 0;
-  var countResponses = 0;
+  var animationKey = prev_num_responses;
+  var countResponses = prev_num_responses;
   for (i = 1; i < Object.keys(content).length + 1; i++) {
     if (content[i].Category == x) {
-      var textBubble = '<div class="bubble-wrapper" style="animation-delay:' + [animationKey] + 's"><div><div class="bubble-body">' + content[i]['comment-body'] + '</div><div class="bubble-footer u-text-white">' + content[i]['Category'] + ':  ' + content[i]['agrees'] + ' Likes   ' + '</div></div></div>';
+      var textBubble = '<div class="bubble-wrapper" style="animation-delay:' + [animationKey] + 's"><div><div class="bubble-body">' + content[i]['comment-body'] + '</div></div></div>';
       // pre.innerHTML += textBubble;
       $('#content').append(textBubble);
       animationKey++;
@@ -124,13 +133,9 @@ function switchCategory(category, direction) {
   if (direction == 'left') {
     $('#category').css({ opacity: 0, left: '-=100' });
     $('#category').animate({ left: 0, opacity: 1 }, 1000);
-    $('#count-responses').css({ opacity: 0, left: '-=100' });
-    $('#count-responses').animate({ left: 0, opacity: 1 }, 1000);
   } else if (direction == 'right') {
     $('#category').css({ opacity: 0, left: '+=100' });
     $('#category').animate({ left: 0, opacity: 1 }, 1000);
-    $('#count-responses').css({ opacity: 0, left: '+=100' });
-    $('#count-responses').animate({ left: 0, opacity: 1 }, 1000);
   } else {
     return;
   }
