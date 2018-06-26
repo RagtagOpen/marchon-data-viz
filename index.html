@@ -17,7 +17,6 @@
       <div class="select-slider">
         <div class="triangleleft" onclick="switchCategoryLeft()"></div>
         <div id="category"></div>
-        <div id="count-responses"></div>
 <!--         <select id="mySelect" style="display:none;" onchange="myFunction()">
           <option value="topic">Category</option>
         </select> -->
@@ -109,7 +108,6 @@ function listMacroCategories(index, direction) {
       countResponses += listMajors(macroCategory.categories[i], countResponses);
   }
   $('.bubble-list').css({top: '0px'});
-
 }
 
 function listMajors(x, prev_num_responses) {
