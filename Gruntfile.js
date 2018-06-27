@@ -71,13 +71,15 @@ module.exports = function(grunt) {
       dist: {
         files: {
           // Example: 'assets/js/core.min.js': ['assets/js/core.js'],
+          'assets/js/declaration.min.js': ['assets/js/declaration.js']
         }
       }
     },
 
     jshint: {
       options: {
-        jshintrc: true
+        jshintrc: true,
+        esversion: 6
       },
       target: {
         src: ['assets/js/*.jsx', 'assets/js/*.js', '!assets/js/*.min.js', '!assets/js/vendors/*']
@@ -105,7 +107,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-uglify-es');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
   // Register Grunt tasks
