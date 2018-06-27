@@ -1,166 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html class="show-declaration show-comments">
   <head>
     <title>MARCHING ORDERS COMMENTS</title>
-    <link rel="stylesheet" href="./assets/css/app.css">
+    <link rel="stylesheet" href="./assets/css/declaration.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-
     <main class="page-body">
-      <div id="outer-div">
-      <div id="content" class="bubble-list"></div>
-<div id="declaration">
-      <div class="select-slider">
-        <div class="triangleleft" onclick="switchCategoryLeft()"></div>
-        <div id="category"></div>
-<!--         <select id="mySelect" style="display:none;" onchange="myFunction()">
-          <option value="topic">Category</option>
-        </select> -->
-        <div class="triangleright" onclick="switchCategoryRight()"></div>
-      </div>
-      <br>
-      <div id="category-description"></div>
-      <br>
-      <p id="demo"></p>
-</div>
-      </div>
+      <header class="page-header">
+        <a href="#previous" title="" class="page-header-previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          <span class="sr-only">Previous</span>
+        </a>
+        <h1 class="page-title"></h1>
+        <a href="#next" title="" class="page-header-next">
+          <span class="sr-only">Next</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </header>
+      <a href="#toggle-options" title="View Options" class="page-options-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span class="sr-only">Options</span>
+      </a>
+      <nav class="page-options">
+        <label for="id_option_declaration" class="page-options-item">
+          <input type="checkbox" id="id_option_declaration" name="option_declaration" checked class="page-options-checkbox" data-classname="show-declaration"> Show Declaration
+        </label>
+        <label for="id_option_comments" class="page-options-item">
+          <input type="checkbox" id="id_option_comments" name="option_comments" checked class="page-options-checkbox" data-classname="show-comments"> Show Comments
+        </label>
+      </nav>
+      <div class="category-description"></div>
+      <ul class="comment-list"></ul>
     </main>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-      crossorigin="anonymous"></script>
-
-    <script type="text/javascript" language="javascript">
-    $(document).ready(function() {
-  //Save category descriptions to local storage to be accessed later
-  $.getJSON('category_descriptions.json', function(cd) {
-    localStorage.setItem('macro-categories', JSON.stringify(cd));
-  });
-
-  $.getJSON('comments_all.json', function(jd) {
-    localStorage.setItem('comments_all', JSON.stringify(jd));
-    // topic_list=[];
-    // for (i = 1; i < Object.keys(jd).length+1; i++) {
-    //   var myArray = jd[i].Category.toLowerCase().trim().match(/[^,\s][^\,]*[^,\s]*/g);
-    //   topic_list.push.apply(topic_list, myArray);
-    // }
-    // var uniqueList = topic_list.filter( onlyUnique );
-    // var  count = {};
-    // topic_list.forEach(function(i) { count[i] = (count[i]||0) + 1;});
-    // uniqueList.sort();
-
-    // //Store select unique list to local storage to be used by arrows when selecting
-    // localStorage.setItem('select-list', JSON.stringify(uniqueList));
-    // localStorage.setItem('count-list', JSON.stringify(count));
-
-    // var myList = document.getElementById('mySelect');
-    // var listContent = '';
-    // for (i = 0; i < uniqueList.length; i++) {
-    //   listContent = listContent + '<option value="' + uniqueList[i] + '">' + uniqueList[i] + '</option>';
-    // }
-    // myList.innerHTML = listContent;
-    // let category = 'ageism';
-    // listMajors(category);
-    // $("#mySelect").val(category);
-    listMacroCategories(0, '');
-    // setDescription(category);
-    // $("#category").text(category.replace("-"," "));
-    // $("#count-responses").text(count[category] + " Responses");
-    $('.triangleleft').css({ color: 'rgba(79, 157, 186, 0)', cursor: 'auto' });
-    var pos = 0;
-    var id = setInterval(animate_bubbles, 10);
-    function animate_bubbles() {
-        top_pos = parseInt($('.bubble-list').css('top'), 10);
-        top_pos--; 
-        pos_string = top_pos + 'px';
-        $('.bubble-list').css({top: pos_string});
-    }
-  });
-
-  function onlyUnique(value, index, self) {
-    return self.indexOf(value) == index;
-  }
-});
-
-function listMacroCategories(index, direction) {
-  localStorage.setItem('current-macro-category', index);
-  var macroCategories = JSON.parse(localStorage.getItem('macro-categories'));
-  var macroCategory = macroCategories[index];
-
-  //Populate category title
-  switchCategory(macroCategory.name, direction);
-
-  //Populate category description
-  $('#category-description').hide();
-  $('#category-description').text('');
-  for (var z = 0; z < macroCategory.description.length; z++) {
-    $('#category-description').append('<p>' + macroCategory.description[z] + '</p>');
-  }
-  $('#category-description').fadeIn(1000);
-
-  //Populate bubbles
-  $('#content').text('');
-  var countResponses = 0;
-  for (var i = 0; i < macroCategory.categories.length; i++) {
-      countResponses += listMajors(macroCategory.categories[i], countResponses);
-  }
-  $('.bubble-list').css({top: '0px'});
-}
-
-function listMajors(x, prev_num_responses) {
-  var content = JSON.parse(localStorage.getItem('comments_all'));
-  var animationKey = prev_num_responses;
-  var countResponses = prev_num_responses;
-  for (i = 1; i < Object.keys(content).length + 1; i++) {
-    if (content[i].Category == x) {
-      var textBubble = '<div class="bubble-wrapper" style="animation-delay:' + [animationKey] + 's"><div><div class="bubble-body">' + content[i]['comment-body'] + '</div></div></div>';
-      // pre.innerHTML += textBubble;
-      $('#content').append(textBubble);
-      animationKey++;
-      countResponses++;
-    }
-  }
-  return countResponses;
-}
-
-function switchCategory(category, direction) {
-  $('#category').text(category);
-  if (direction == 'left') {
-    $('#category').css({ opacity: 0, left: '-=100' });
-    $('#category').animate({ left: 0, opacity: 1 }, 1000);
-  } else if (direction == 'right') {
-    $('#category').css({ opacity: 0, left: '+=100' });
-    $('#category').animate({ left: 0, opacity: 1 }, 1000);
-  } else {
-    return;
-  }
-}
-
-function switchCategoryLeft() {
-  var currentMacroCategory = JSON.parse(localStorage.getItem('current-macro-category'));
-  if (currentMacroCategory == 1) {
-    $('.triangleleft').css({ color: 'rgba(79, 157, 186, 0)', cursor: 'auto' });
-  }
-  if (currentMacroCategory == 0) return;
-  listMacroCategories(currentMacroCategory == 0 ? 0 : currentMacroCategory - 1, 'left');
-
-  $('.triangleright').css({ color: '#fff', cursor: 'pointer' });
-}
-
-function switchCategoryRight() {
-  var currentMacroCategory = JSON.parse(localStorage.getItem('current-macro-category'));
-  if (currentMacroCategory == 8) {
-    $('.triangleright').css({ color: 'rgba(79, 157, 186, 0)', cursor: 'auto' });
-  }
-  // category 10 is "Uncategorized" and shouldn't be displayed
-  if (currentMacroCategory == 9) return;
-  listMacroCategories(currentMacroCategory + 1, 'right');
-
-  $('.triangleleft').css({ color: '#fff', cursor: 'pointer' });
-}
-</script>
+    <footer class="page-footer">
+      <a href="https://ragtag.org/?utm_medium=web&amp;utm_source=marchon-data-viz&amp;utm_name=empowered-badge" target="_blank"><img src="https://assets.ragtag.tech/empowered-by-ragtag.svg" alt="Empowered by Ragtag"></a>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js" integrity="sha256-eOUokb/RjDw7kS+vDwbatNrLN8BIvvEhlLM5yogcDIo=" crossorigin="anonymous"></script>
+    <script src="./assets/js/declaration.min.js"></script>
   </body>
 </html>
