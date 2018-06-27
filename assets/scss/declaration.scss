@@ -155,7 +155,7 @@ body * {
     display: block;
   }
 
-  @media (max-width: 767px), (max-height: 767px) {
+  @media (max-width: 767px), (max-height: 599px) {
     position: static;
   }
 }
@@ -190,7 +190,7 @@ body * {
   &:first-child {
     margin-top: 100vh;
 
-    @media (max-width: 767px), (max-height: 767px) {
+    @media (max-width: 767px), (max-height: 599px) {
       margin-top: 2rem;
     }
   }
