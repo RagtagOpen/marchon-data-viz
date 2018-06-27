@@ -13,7 +13,7 @@
   let scrollThrottle = 5;
   let optionsToggle = document.querySelector('.page-options-toggle');
   let html = document.documentElement;
-  let optionsCheckboxes = document.querySelectorAll('.page-options-checkbox');
+  let optionsCheckboxes = [].slice.call(document.querySelectorAll('.page-options-checkbox'));
 
   fetch('data.json')
     .then(function(result) {
@@ -158,13 +158,26 @@
 
   optionsCheckboxes.forEach(function(input) {
     input.addEventListener(
-      'click',
+      'change',
       function(ev) {
         let target = ev.target;
         if (target.checked) {
           html.classList.add(target.dataset.classname);
         } else {
           html.classList.remove(target.dataset.classname);
+        }
+        if (
+          !optionsCheckboxes.filter(function(elem) {
+            return elem.checked;
+          }).length
+        ) {
+          optionsCheckboxes
+            .filter(function(elem) {
+              return elem !== target;
+            })
+            .forEach(function(elem) {
+              elem.click();
+            });
         }
       },
       false
