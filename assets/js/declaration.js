@@ -11,6 +11,9 @@
   let description = document.querySelector('.category-description');
   let commentList = document.querySelector('.comment-list');
   let scrollThrottle = 5;
+  let optionsToggle = document.querySelector('.page-options-toggle');
+  let html = document.documentElement;
+  let optionsCheckboxes = document.querySelectorAll('.page-options-checkbox');
 
   fetch('data.json')
     .then(function(result) {
@@ -59,7 +62,7 @@
       })
       .join('\n');
 
-    scrollTo.cancel();
+    scrollElement.cancel();
 
     commentList.innerHTML = '';
     commentList.scrollTo(0, 0);
@@ -71,10 +74,13 @@
       .join('\n');
 
     commentList.style.bottom = 'auto'; // temporarily allow the list to be it's full height so we can get the size
+    commentList.style.display = 'block';
     let targetHeight = commentList.getClientRects()[0].height + document.body.getClientRects()[0].height;
     commentList.removeAttribute('style');
 
-    scrollTo(commentList, targetHeight, targetHeight * scrollThrottle);
+    window.scrollTo(0, 0);
+
+    scrollElement(commentList, targetHeight, targetHeight * scrollThrottle);
   };
 
   let init = function() {
@@ -114,7 +120,7 @@
   );
 
   // adapted from https://gist.github.com/andjosh/6764939
-  let scrollTo = function(element, to, duration) {
+  let scrollElement = function(element, to, duration) {
     let start = element.scrollTop,
       change = to - start,
       currentTime = 0,
@@ -123,17 +129,45 @@
     let animateScroll = function() {
       currentTime += increment;
       let val = element.scrollTop + change / (duration / increment);
+      if (!html.classList.contains('show-comments')) {
+        currentTime -= increment;
+        val = element.scrollTop;
+      }
       window.requestAnimationFrame(function() {
         element.scrollTop = val;
       });
       if (currentTime < duration) {
-        scrollTo.timeout = setTimeout(animateScroll, increment);
+        scrollElement.timeout = setTimeout(animateScroll, increment);
       }
     };
     animateScroll();
   };
 
-  scrollTo.cancel = function() {
-    clearTimeout(scrollTo.timeout);
+  scrollElement.cancel = function() {
+    clearTimeout(scrollElement.timeout);
   };
+
+  optionsToggle.addEventListener(
+    'click',
+    function(ev) {
+      ev.preventDefault();
+      html.classList.toggle('show-page-options');
+    },
+    false
+  );
+
+  optionsCheckboxes.forEach(function(input) {
+    input.addEventListener(
+      'click',
+      function(ev) {
+        let target = ev.target;
+        if (target.checked) {
+          html.classList.add(target.dataset.classname);
+        } else {
+          html.classList.remove(target.dataset.classname);
+        }
+      },
+      false
+    );
+  });
 })();
