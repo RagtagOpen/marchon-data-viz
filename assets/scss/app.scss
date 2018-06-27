@@ -17,6 +17,7 @@
 body{
     font-family: $font-family;
     font-size: 16px;
+    background-color: $brand-blue;
 }
 
 p{
@@ -43,15 +44,28 @@ p.page-header__copy{
 
 // Body
 .page-body{
-    background-color: $brand-blue;
-    padding: 40px 20px 60px;
 }
 
+#outer-div {
+    height: 100vh;
+}
+
+#declaration {
+    padding: 40px 20px 60px;
+    background-color: $brand-blue-transparent;
+    height: 100vh;
+}
 // Bubbles{
 
 .bubble-list{
+    padding: 0px 20px;
     max-width: 1000px;
     margin: 0 auto;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: -1;
+    background-color: $brand-blue;
 }
 
 .bubble-wrapper{
@@ -175,12 +189,9 @@ p.page-header__copy{
     font-size: 2rem;
     color: #fff;
     min-width:360px;
+    opacity: 1.0;
 }
 
-#count-responses {
-    font-size: 1rem;
-    margin-top:5px;
-}
 
 #category-description {
     width: 80%;
@@ -189,4 +200,5 @@ p.page-header__copy{
     color: #fff;
     margin-top: 20px;
     margin-bottom: 20px;
+    opacity: 1.0;
 }
