@@ -69,7 +69,7 @@
     // setDescription(category);
     // $("#category").text(category.replace("-"," "));
     // $("#count-responses").text(count[category] + " Responses");
-    $('.triangleleft').css({ color: '#4f9dba', cursor: 'auto' });
+    $('.triangleleft').css({ color: 'rgba(79, 157, 186, 0)', cursor: 'auto' });
     var pos = 0;
     var id = setInterval(animate_bubbles, 10);
     function animate_bubbles() {
@@ -142,7 +142,7 @@ function switchCategory(category, direction) {
 function switchCategoryLeft() {
   var currentMacroCategory = JSON.parse(localStorage.getItem('current-macro-category'));
   if (currentMacroCategory == 1) {
-    $('.triangleleft').css({ color: '#4f9dba', cursor: 'auto' });
+    $('.triangleleft').css({ color: 'rgba(79, 157, 186, 0)', cursor: 'auto' });
   }
   if (currentMacroCategory == 0) return;
   listMacroCategories(currentMacroCategory == 0 ? 0 : currentMacroCategory - 1, 'left');
@@ -152,10 +152,11 @@ function switchCategoryLeft() {
 
 function switchCategoryRight() {
   var currentMacroCategory = JSON.parse(localStorage.getItem('current-macro-category'));
-  if (currentMacroCategory == 9) {
-    $('.triangleright').css({ color: '#4f9dba', cursor: 'auto' });
+  if (currentMacroCategory == 8) {
+    $('.triangleright').css({ color: 'rgba(79, 157, 186, 0)', cursor: 'auto' });
   }
-  if (currentMacroCategory == 10) return;
+  // category 10 is "Uncategorized" and shouldn't be displayed
+  if (currentMacroCategory == 9) return;
   listMacroCategories(currentMacroCategory + 1, 'right');
 
   $('.triangleleft').css({ color: '#fff', cursor: 'pointer' });
