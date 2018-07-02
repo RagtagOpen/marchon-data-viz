@@ -9,7 +9,8 @@ https://ragtagopen.github.io/marchon-data-viz/
 
 1.  Install Node/NPM: If you're on a Mac running [Homebrew](https://brew.sh), run `brew install node` on the command line. Otherwise, [follow these instructions](https://www.npmjs.com/get-npm).
 2.  Install Sass by running `npm -g install sass` on the command line.
-3.  Install everything else by running `npm install` on the command line.
+3.  Install Compass by running `gem update --system && gem install compass` on the command line.
+4.  Install everything else by running `npm install` on the command line.
 
 If you don't have Compass installed try `npm i compass`.  If your Grunt job still fails you can try another install method `sudo gem install compass -n /usr/local/bin`
 
