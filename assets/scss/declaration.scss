@@ -246,6 +246,33 @@ body * {
   }
 }
 
+.web-page-options {
+  color: $white;
+  position: fixed;
+  right: 10px;
+  top: 16px;
+  font-size:0.8em;
+  z-index: 10;
+  @media (max-width: 767px), (max-height: 499px) {
+    display:none;
+  }
+}
+
+.web-page-options-item {
+  display: block;
+  margin-bottom: 8px;
+
+  input {
+    color: #ffffff !important;
+  }
+}
+
+.page-options-toggle {
+  @media (min-width: 768px) {
+    display:none;
+  }
+}
+
 .page-options {
   background: transparentize($white, 0.02);
   border-radius: 3px;
