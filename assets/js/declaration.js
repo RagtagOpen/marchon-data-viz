@@ -124,7 +124,8 @@
     let start = element.scrollTop,
       change = to - start,
       currentTime = 0,
-      increment = 16; // 16 is just slightly better than 60fps
+      increment = 8; // 16 is just slightly better than 60fps
+      //Martines:  changed increment to 8 to scroll slower
 
     let animateScroll = function() {
       currentTime += increment;
