@@ -12,11 +12,8 @@ https://ragtagopen.github.io/marchon-data-viz/
 3.  Install Compass by running `gem update --system && gem install compass` on the command line.
 4.  Install everything else by running `npm install` on the command line.
 
-If you don't have Compass installed try `npm i compass`.  If your Grunt job still fails you can try another install method `sudo gem install compass -n /usr/local/bin`
-
 ## Compiling Assets with Grunt
 
 In the root directory of the project run `grunt watch` on the command line. Any edits made to "assets/scss/app.scss" or one of the files in "assets/scss/base" will recompile "app.css" for you.
 
 The configuration also supports Live Reload. Install one of [the browser extensions](http://livereload.com/extensions/) to have the page automatically refresh whenever an asset is recompiled.
-
