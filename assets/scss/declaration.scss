@@ -111,7 +111,7 @@ body * {
   background: $brand-blue;
   box-shadow: 0 0 1rem 1rem $brand-blue;
   display: none;
-  line-height: 1.5;
+  line-height: 1.8;
   margin: 0 auto;
   opacity: 0.8;
   padding: 1.5rem 1rem 1rem;
@@ -127,6 +127,7 @@ body * {
     margin-right: auto;
     max-width: 75ch;
     width: 80%;
+    font-size:1.2em;
   }
 
   > :first-child {
