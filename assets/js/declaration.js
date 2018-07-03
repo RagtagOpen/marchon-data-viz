@@ -167,7 +167,6 @@
           html.classList.add(target.dataset.classname);
           let comments = document.getElementsByClassName('comment');
           for (var z = 0; z < comments.length; z++) {
-            console.log('Brighter');
             comments[z].style.background = 'hsla(0,0%,100%,.6)';
           }
           optionSelected.setAttribute("checked"); 
@@ -175,7 +174,6 @@
           html.classList.remove(target.dataset.classname);
           let comments = document.getElementsByClassName('comment');
           for (var y = 0; y < comments.length; y++) {
-            console.log('Less bright');
             comments[y].style.background = 'hsla(0,0%,100%,1)';
           }
           optionSelected.removeAttribute("checked");
