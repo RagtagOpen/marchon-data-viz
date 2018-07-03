@@ -124,7 +124,7 @@
     let start = element.scrollTop,
       change = to - start,
       currentTime = 0,
-      increment = 8; // 16 is just slightly better than 60fps
+      increment = 6; // 16 is just slightly better than 60fps
       //Martines:  changed increment to 8 to scroll slower
 
     let animateScroll = function() {
@@ -165,9 +165,19 @@
         let optionSelected = document.getElementsByName(target.attributes.name.value);
         if (target.checked) {
           html.classList.add(target.dataset.classname);
+          let comments = document.getElementsByClassName('comment');
+          for (var z = 0; z < comments.length; z++) {
+            console.log('Brighter');
+            comments[z].style.background = 'hsla(0,0%,100%,.6)';
+          }
           optionSelected.setAttribute("checked"); 
         } else {
           html.classList.remove(target.dataset.classname);
+          let comments = document.getElementsByClassName('comment');
+          for (var y = 0; y < comments.length; y++) {
+            console.log('Less bright');
+            comments[y].style.background = 'hsla(0,0%,100%,1)';
+          }
           optionSelected.removeAttribute("checked");
         }
         if (
